@@ -18,8 +18,24 @@ public class Recitation4 {
      */
     public static String explode(String word){
         StringBuilder sb = new StringBuilder();
+        System.out.println(word);
+        String other = "";
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
 
-        // TODO: replace this line with your code
+            if (Character.isDigit(c) || Character.isLetter(c)){
+                other += c;
+            }
+            if (Character.isDigit(c)) {
+                int repeatCount = Character.getNumericValue(c);
+                sb.append(String.valueOf(c).repeat(repeatCount));
+            } else if (Character.isLetter(c)) {
+                int repeatCount = i + 1;
+                sb.append(String.valueOf(c).repeat(repeatCount));
+            } else {
+                sb.append(other);
+            }
+        }
 
         return sb.toString();
     }
