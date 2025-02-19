@@ -23,9 +23,6 @@ public class Recitation4 {
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
 
-            if (Character.isDigit(c) || Character.isLetter(c)){
-                other += c;
-            }
             if (Character.isDigit(c)) {
                 int repeatCount = Character.getNumericValue(c);
                 sb.append(String.valueOf(c).repeat(repeatCount));
@@ -35,6 +32,7 @@ public class Recitation4 {
             } else {
                 sb.append(other);
             }
+            other += c;
         }
 
         return sb.toString();
